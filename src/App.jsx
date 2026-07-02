@@ -329,6 +329,7 @@ function HomePage({ activeProject, selectedProject, setActiveProject, onProjects
                 className={`project-card ${activeProject === project.id ? "active" : ""}`}
                 key={project.id}
                 type="button"
+                aria-pressed={activeProject === project.id}
                 onClick={() => setActiveProject(project.id)}
               >
                 <span>{project.title}</span>
@@ -444,16 +445,24 @@ function RoAsdPage({ onBack }) {
 }
 
 function ToolPanel({ tool, isOpen, onToggle }) {
+  const panelId = `${tool.id}-panel`;
+
   return (
     <article className={`tool-panel ${isOpen ? "open" : ""}`}>
-      <button className="tool-trigger" type="button" onClick={onToggle} aria-expanded={isOpen}>
+      <button
+        className="tool-trigger"
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+      >
         <span>
           <strong>{tool.title}</strong>
           <small>{tool.label}</small>
         </span>
         <span className="toggle-mark">{isOpen ? "Kapat" : "Aç"}</span>
       </button>
-      <div className="tool-content" aria-hidden={!isOpen}>
+      <div className="tool-content" id={panelId} aria-hidden={!isOpen}>
         <p>{tool.summary}</p>
         <ul>
           {tool.points.map((point) => (
