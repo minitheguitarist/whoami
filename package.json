@@ -1,8 +1,9 @@
 {
-  "name": "frontend",
+  "name": "semih-murat-portfolio",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://minitheguitarist.github.io/whoami", 
+  "type": "module",
+  "homepage": "https://minitheguitarist.github.io/whoami/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,6 +16,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
     "vite": "^5.0.0",
     "gh-pages": "^6.0.0"
   }
